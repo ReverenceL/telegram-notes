@@ -1,0 +1,5 @@
+[bot]
+token = "5876140085:AAGgCqm53KzP63rFQCzwFdexCKoZ9a35z8A"
+
+[db]
+path = "database.db"

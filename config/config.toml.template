@@ -1,0 +1,5 @@
+[bot]
+token = "TOKEN"
+
+[db]
+path = "database.db"
