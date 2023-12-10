@@ -3,6 +3,7 @@ from aiogram import Dispatcher
 from bot.dialogs.list.dialogs import notes_list_dialog
 from bot.dialogs.note import note_dialog
 from bot.dialogs.root import main_menu_dialog
+from bot.dialogs.search.dialogs import search_note_dialog
 
 
 def setup_dialogs(dp: Dispatcher) -> None:
@@ -10,4 +11,5 @@ def setup_dialogs(dp: Dispatcher) -> None:
         main_menu_dialog,
         notes_list_dialog,
         note_dialog,
+        search_note_dialog,
     )

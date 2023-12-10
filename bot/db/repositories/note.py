@@ -26,6 +26,13 @@ class NoteRepo(BaseRepo):
         )
         return result.all()
 
+    async def search_by_title(self, user_id: int, title: str) -> Sequence[Note]:
+        result = await self.session.scalars(
+            select(Note)
+            .where(Note.user_id == user_id, Note.title.like(f"%{title}%"))
+        )
+        return result.all()
+
     async def update_title(self, note_id: int, title: str) -> None:
         await self.session.execute(
             update(Note)
