@@ -11,3 +11,5 @@ class NotesListSG(StatesGroup):
 
 class NoteSG(StatesGroup):
     MENU = State()
+    UPDATE_TITLE = State()
+    UPDATE_TEXT = State()
