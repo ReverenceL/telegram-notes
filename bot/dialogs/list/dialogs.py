@@ -1,10 +1,11 @@
 from aiogram import F
 from aiogram_dialog import Dialog, Window
-from aiogram_dialog.widgets.kbd import ScrollingGroup, NextPage, PrevPage, Row, Select, Start, CurrentPage
+from aiogram_dialog.widgets.kbd import ScrollingGroup, NextPage, PrevPage, Row, Select, Start, CurrentPage, Button
 from aiogram_dialog.widgets.text import Const, Format
 
 from bot.dialogs.list.getters import get_user_notes
 from bot.dialogs.list.handlers import select_note
+from bot.dialogs.root.handlers import create_note
 from bot.dialogs.states import NotesListSG, MainSG
 
 notes_list_dialog = Dialog(
@@ -41,7 +42,10 @@ notes_list_dialog = Dialog(
                 when=F["pages"] != 0,
             ),
         ),
-        Start(Const("Назад"), id="close.list", state=MainSG.MENU),
+        Row(
+            Start(Const("◀️ Назад"), id="close.list", state=MainSG.MENU),
+            Button(Const("✍️ Создать"), id="open.empty.note", on_click=create_note),
+        ),
         state=NotesListSG.MENU,
         getter=get_user_notes,
     ),
